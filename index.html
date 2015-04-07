@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ZeroOne Sort</title>
+	</head>
+	<body>
+		<header id="top" class="main-header">
+			<h1>Zero One Sorter</h1>
+			<p>Simple web app will sort 0's and 1's that are inputed in ascending order.</p>
+		</header>
+		<form action="index.html" method="post">
+			<input type="text" id="numbers">
+			<button onclick="reset()">Reset</button>
+			<input type="button" value="Sort" onclick="sort()">
+		</form>
+		<p id="sorted">You number will be sorted here -> </p>
+		<script>
+			function sort() {
+				var number = document.getElementById("numbers").value;
+				console.log(number);
+
+				var numArray = [number.length];
+
+
+				var index = 0;
+
+				for (var i = index; i < number.length; i++){
+
+					numArray[i] = parseInt(number.charAt(i));
+
+				}
+
+				for (var i = index; i <= numArray.length; i++) {
+
+					for (var j = i + 1; j <= numArray.length; j++) 
+					{
+						if (numArray[i] >= numArray[j]) {
+							index = j;
+						
+							store = numArray[i];
+							numArray[i] = numArray[j];
+							numArray[j] = store;
+						}
+					};
+
+				};
+				document.getElementById('sorted').innerHTML += numArray;
+			}
+
+			function reset(){
+				location.reload();
+			}
+		</script>
+	</body>
+</html>
